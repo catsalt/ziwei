@@ -13,21 +13,23 @@ func check(ui [13][]string) {
 }
 
 func TestAny(t *testing.T) {
-	var hi HeroInfo
-	var lni LiuNianInfo
-	hi.bDcopyInfo(infoOne)
-	lni.bDcopyInfo(infoTwo)
-	lni.bDcopyLiuHua(liuhuaOne)
+	// var hi HeroInfo
+	// var lni LiuNianInfo
+	// hi.bDcopyInfo(infoOne)
+	ZfzxPan()
 
-	var uix UIZHUX
-	xg := make(XGINDEX)
-	uix.ZxPaiPan(&hi, xg)
-	printUI(uix)
-	uilx := lni.ZlxPaiPan(hi, uix, xg)
-	for k, v := range uilx {
-		fmt.Println(k)
-		prtuilx(v)
-	}
+	// lni.bDcopyInfo(infoTwo)
+	// lni.bDcopyLiuHua(liuhuaOne)
+
+	// var uix UIZHUX
+	// xg := make(XGINDEX)
+	// uix.ZxPaiPan(&hi, xg)
+	// printUI(uix)
+	// uilx := lni.ZlxPaiPan(hi, uix, xg)
+	// for k, v := range uilx {
+	// 	fmt.Println(k)
+	// 	prtuilx(v)
+	// }
 }
 func printUI(ui UIZHUX) {
 	for i := 0; i < 13; i++ {

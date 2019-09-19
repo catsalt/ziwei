@@ -11,13 +11,15 @@ import (
 	// "strings"
 )
 
-var infoOne = Info{姓名: "命例", 性别: "女",
+var infoOne = Info{
 	公年: 1955, 公月: 3, 公日: 7, 公时: 4, 农年: 1955, 农月: 2, 农日: 14, 农时: 3,
-	年干: "乙", 年支: "未", 月干: "己", 月支: "卯", 日干: "丁", 日支: "卯", 时干: "壬", 时支: "寅"}
+	年干: "乙", 年支: "未", 月干: "己", 月支: "卯", 日干: "丁", 日支: "卯", 时干: "壬", 时支: "寅",
+	姓名: "命例", 性别: "女"}
 var infoTwo = Info{姓名: "某例", 性别: "女",
 	公年: 2019, 公月: 9, 公日: 9, 公时: 19, 农年: 2019, 农月: 8, 农日: 11, 农时: 10,
 	年干: "己", 年支: "亥", 月干: "癸", 月支: "酉", 日干: "己", 日支: "酉", 时干: "癸", 时支: "酉"}
-
+var hero = Hero{1955, 3, 7, 4, 1955, 0, 2, 14, 3,
+	"乙", "未", "己", "卯", "丁", "卯", "壬", "寅", "命例", "女"}
 var liuhuaOne = LiuHua{
 	LyHgSlice: []LH{LH{"本命", "原"}, LH{"大运", "原"}, LH{"流年", "原"},
 		LH{"流月", "原"}, LH{"流日", "原"}, LH{"流时", "原"}},
@@ -108,7 +110,7 @@ func (h HeroList) ZfchooseHero(arrow string) Hero {
 	return h[ID]
 }
 
-func ZfzxPan(hero Hero) {
+func ZfzxPan() {
 	var (
 		hi HeroInfo
 		ui UIZHUX
@@ -117,6 +119,13 @@ func ZfzxPan(hero Hero) {
 	// HI.bDcopyInfo(infoOne)
 	hi.ZdCopyHero(hero)
 	ui.ZxPaiPan(&hi, xg)
+	for i := 0; i < 13; i++ {
+		fmt.Printf("%0.2d: ", i)
+		for _, v := range ui[i] {
+			fmt.Printf("%s ", v)
+		}
+		fmt.Println(len(ui[i]))
+	}
 	HI = hi
 	UI = ui
 	XG = xg
@@ -125,8 +134,7 @@ func ZflxPan(liuhua LiuHua, liunian Hero) {
 	// LNI.bDcopyInfo(infoTwo)
 	// LNI.bDcopyLiuHua(liuhuaOne)
 	var (
-		lni  LiuNianInfo
-		
+		lni LiuNianInfo
 	)
 	lni.ZdCopyLiuHuaNian(liuhua, liunian)
 	lxui := lni.ZlxPaiPan(HI, UI, XG)
